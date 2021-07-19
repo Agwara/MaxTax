@@ -1,0 +1,21 @@
+.fetch-error {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
+}
+
+.fetch-error h3 {
+  font-size: 25px;
+  font-weight: 700;
+  color: red;
+}
+
+.fetch-error p {
+  font-size: 16px;
+  font-weight: 500;
+  color: red;
+}

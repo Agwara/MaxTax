@@ -1,0 +1,32 @@
+.dashboard__header {
+  grid-row: 1/2;
+  grid-column: 2/3;
+
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 0.4000000059604645px solid #DBE3EE;
+  border-left: none;
+  opacity: 1;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px 0px 10px;
+
+}
+
+.dashboard__header p {
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 600;
+  color: black;
+}
+
+.dashboard__main--header-icons {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.initial-icon-style {
+  margin-left: 10px;
+}

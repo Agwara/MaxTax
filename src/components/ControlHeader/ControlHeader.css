@@ -1,0 +1,39 @@
+.control-header {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 0.4000000059604645px solid #DBE3EE;
+  border-left: none;
+  border-top: none;
+  opacity: 1;
+
+  height: 60px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+}
+
+.control-header__actions {
+  display: flex;
+  align-items: center;
+  column-gap: 40px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.header__back-action {
+  cursor: pointer;
+}
+
+.header__back-action {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+} 
+
+.control__input {
+  padding: 10px;
+  outline: none;
+  font-size: 12px;
+}

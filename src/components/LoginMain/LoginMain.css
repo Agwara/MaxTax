@@ -1,0 +1,50 @@
+.login-main {
+  position: relative;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  opacity: 1;
+  width: 70vw;
+
+  display: flex;
+  align-items: center;
+
+  padding-left: 10%;
+}
+
+
+.login-main__astro {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+
+  height: 140px;
+  width: 140px;
+}
+
+.login-main__bottom-text {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+
+  height: 40px;
+  width: 100%;
+  padding: 10px;
+  
+  display: flex;
+  align-items: center;
+  column-gap: 200px;
+
+  font: normal normal normal 12px/17px Source Sans Pro;
+  letter-spacing: 0px;
+  color: #859BBCF5;
+  opacity: 1;
+}
+
+.bottom-text__second-container {
+  display: flex;
+  column-gap: 40px;
+}
+
+.bottom-text__third-container {
+  display: flex;
+  column-gap: 5px;
+}
