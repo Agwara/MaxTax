@@ -1,2 +1,51 @@
 .dashboard-ship {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  overflow-y: scroll;
+
+}
+
+.dashboard-data {
+  margin-top: 10px;
+  flex-grow: 1;
+
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 0.4000000059604645px solid #DBE3EE;
+  opacity: 1;
+
+  margin: 40px;
+}
+
+.dashboard-data__header, .ships-data {
+  display: grid;
+  grid-template-columns: 180px repeat(6, 1fr);
+  padding: 20px 40px;
+}
+
+.dashboard-data__header p {
+  font: normal normal normal 12px/17px Source Sans Pro;
+  letter-spacing: 0px;
+  color: #859BBCF5;
+  opacity: 1;
+}
+
+.ships-data__name {
+  display: flex;
+  column-gap: 10px;
+}
+
+.ships-data__block {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #DDDBDB;
+}
+
+.ships-data p {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dataItem-purple {
+  color: #7869CA;
 }

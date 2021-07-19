@@ -23,7 +23,8 @@ export default function fetchReducer (state={}, action) {
     case "START_FETCH": 
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
+        fetchError: false
       }
     
     case "SHOW_ERROR":

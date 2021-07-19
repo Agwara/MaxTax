@@ -1,5 +1,8 @@
 import React, {useState, useEffect, useReducer} from "react";
 
+import ShipsDataItem from "./ShipsDataItem"
+import LoadingAnimation from "../LoadingAnimation/LoadingAnimation";
+import FetchError from "../FetchError/FetchError";
 import ControlHeader from "../ControlHeader/ControlHeader";
 import { startFetchData } from "../../fetchData/fetchData";
 import fetchReducer from "../../fetchReducer/fetchReducer";
@@ -17,7 +20,6 @@ const initialState = {
 }
 
 const DashBoardShips = () => {
-  const [filterText, setFilterText] = useState("");
   const [dashboardShipState, dispatch] = useReducer(fetchReducer, initialState);
   const [stateUrl, setStateUrl] = useState("https://swapi.dev/api/starships/");
   const [paginationData, setPaginationData] = useState([0, 0, 0]) 
@@ -26,12 +28,12 @@ const DashBoardShips = () => {
     shipsFetch(stateUrl)
   }, [stateUrl])
 
-  
 
   const shipsFetch = async (url) => {
     try {
       dispatch({type: "START_FETCH"})
       let response = await startFetchData(url);
+      console.log(response)
       let paginationObject = calculatePageNumber(response.previous, response.next, response.results.length, response.count);
       console.log(paginationObject)
       setPaginationData(paginationObject);
@@ -46,28 +48,42 @@ const DashBoardShips = () => {
     }
   }
 
-  const getFilterText = () => {
+  const getFilterText = (filterText) => {
     dispatch({
       type: "FILTER_ITEMS",
       filterText: filterText
     })
   }
-  console.log("here")
-  console.log(paginationData)
 
   return (
     <div className="dashboard-ship">
       <ControlHeader
         placeHolder="starship"
-        setFilterText={setFilterText}
-        totalItem={dashboardShipState.totalItems}
         getFilterText={getFilterText}
         setStateUrl={setStateUrl}
         paginationData={paginationData}
-        nextUrl={dashboardShipState.nextFetchUrl}
-        prevUrl={dashboardShipState.prevFetchUrl}
+        componentState={dashboardShipState}
 
       />
+
+      <div className="dashboard-data">
+        <div className="dashboard-data__header">
+          <p>Name</p>
+          <p>Model</p>
+          <p>Class</p>
+          <p>Cost(in GC)</p>
+          <p>Passengers</p>
+          <p>Length</p>
+          <p>Crew</p>
+        </div>
+
+        {dashboardShipState.isLoading && <LoadingAnimation />}
+        {dashboardShipState.fetchError && <FetchError />}
+        {
+          dashboardShipState.filteredItems && 
+          dashboardShipState.filteredItems.map((item) => <ShipsDataItem key={item.name} item={item} />) 
+        }
+      </div>
     </div>
   )
 }

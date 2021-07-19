@@ -7,10 +7,13 @@ export const calculatePageNumber = (prevUrl, nextUrl, lengthOfData, total) => { 
 
   let nextPageNumber = nextUrl.split("page=")[1];
   nextPageNumber = parseInt(nextPageNumber);
-  const start = (nextPageNumber - 1) * lengthOfData + 1;
-  const end = (start + lengthOfData) - 1; 
+  let start = (nextPageNumber - 1) * lengthOfData + 1;
+  let end = (start + lengthOfData) - 1; 
+  end = (end > total) ? total : end;
   // check if it's last page 
   if(!nextUrl) return [(prevPageNumber * lengthOfData) + 1, total, total];
+
   console.log("here")
-  return [start, end, total];
+  return [start, end , total];
+
 }

@@ -1,13 +1,14 @@
 import React from "react";
 import {useHistory} from "react-router-dom"; 
 
-import arrowRight from "../../assets/arrow-point-to-right.svg"
+import arrowRight from "../../assets/arrow-point-to-right.svg";
+import searchIcon from "../../assets/search.svg"
 import "./ControlHeader.css";
 
 
 const ControlHeader = (props) => {
   const history = useHistory();
-  console.log(history)
+
   return (
     <div className="control-header">
       <div className="control-header__actions">
@@ -19,11 +20,27 @@ const ControlHeader = (props) => {
           <p>Back</p>
         </div>
 
-        <p>{props.totalItem} Total</p>
+        <p>{props.componentState.totalItems} Total</p>
 
         <div>
-          {props.pagination && <p>Showing {props.paginationData[0]} - {props.paginationData[1]} of {props.paginationData[2]}</p>}
-          
+          {
+            props.paginationData && 
+            <p>Showing {props.paginationData[0]} - {props.paginationData[1]} of {props.paginationData[2]}</p>
+          }
+        </div>
+
+        <div className="arrow-actions">
+          <img
+            alt=""
+            src={arrowRight}
+            onClick={() => props.setStateUrl(props.componentState.prevFetchUrl)}
+          />
+          <img
+            alt=""
+            src={arrowRight}
+            className="rotate-arrow"
+            onClick={() => props.setStateUrl(props.componentState.nextFetchUrl)}
+          />
         </div>
         
       </div>
@@ -32,6 +49,13 @@ const ControlHeader = (props) => {
           type="text"
           placeholder={`Search for ${props.placeHolder}`}  
           className="control__input"
+          onChange={(e) => props.getFilterText(e.target.value)}
+        />
+
+        <img
+          alt=""
+          src={searchIcon}
+          className="search__position"
         />
       </div>
     </div>

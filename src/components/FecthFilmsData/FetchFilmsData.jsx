@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 import LoadingAnimation from "../LoadingAnimation/LoadingAnimation";
-import FetchError from "../FetchError/FetchError"
+import FetchError from "../FetchError/FetchError";
 import FilmsDataItem from "./FilmsDataItem";
 import "./FetchFilmsData.css";
 
