@@ -22,7 +22,8 @@ const ControlHeader = (props) => {
         <p>{props.totalItem} Total</p>
 
         <div>
-          <p>Showing {props.paginationData[0]} - {props.paginationData[1]} of {props.paginationData[2]}</p>
+          {props.pagination && <p>Showing {props.paginationData[0]} - {props.paginationData[1]} of {props.paginationData[2]}</p>}
+          
         </div>
         
       </div>
