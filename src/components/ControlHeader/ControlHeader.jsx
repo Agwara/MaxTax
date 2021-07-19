@@ -20,7 +20,11 @@ const ControlHeader = (props) => {
           <p>Back</p>
         </div>
 
-        <p>{props.componentState.totalItems} Total</p>
+        {/* <p>{props.componentState.totalItems && props.componentState.totalItems} Total</p> */}
+
+        {
+          props.componentState && <p>{props.componentState.totalItems} Total</p>
+        }
 
         <div>
           {
