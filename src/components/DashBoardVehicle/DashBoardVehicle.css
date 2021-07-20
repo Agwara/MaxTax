@@ -1,0 +1,49 @@
+.dashboard-vehicle__container {
+  margin-top: 10px;
+
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 0.4000000059604645px solid #DBE3EE;
+  opacity: 1;
+
+  margin: 40px;
+}
+
+.dashboard-vehicle__header, .vehicle-data-item {
+  display: grid;
+  grid-template-columns: repeat(5, 150px) repeat(3, 1fr);
+  padding: 20px 40px;
+}
+
+.dashboard-vehicle__header p {
+  font: normal normal normal 12px/17px Source Sans Pro;
+  letter-spacing: 0px;
+  color: #859BBCF5;
+  opacity: 1;
+}
+
+.vehicle-items {
+  width: 100%;
+  max-height: 550px;
+  overflow-y: scroll;
+}
+
+.vehicle-data-item {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.vehicle-data-item p {
+  text-transform: capitalize;
+}
+
+.vehicle-data__name {
+  display: flex;
+  column-gap: 10px;
+}
+
+.vehicle-data__block {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #DDDBDB;
+}
