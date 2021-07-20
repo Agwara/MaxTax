@@ -13,7 +13,7 @@ const PeopleDataItem = (props) => {
       <p>{props.item.height}</p>
       <p>{props.item.mass}</p>
       <p>{props.item.skin_color}</p>
-      <p>{props.item.created}</p>
+      <p className="people-data-item--green">{props.item.created}</p>
     </div>
   )
 }
