@@ -25,10 +25,6 @@ const DashBoardPeople = () => {
   const [stateUrl, setStateUrl] = useState("https://swapi.dev/api/people/");
   const [paginationData, setPaginationData] = useState([0, 0, 0]) 
 
-  // useEffect(() => {
-  //   peopleFetch(stateUrl);
-  // }, [stateUrl])
-
 
   useEffect(() => {
     let isMounted = true;
@@ -52,27 +48,6 @@ const DashBoardPeople = () => {
     }
   }, [stateUrl])
 
-  // const peopleFetch = async (url) => {
-  //   try {
-  //     dispatch({type: "START_FETCH"})
-  //     let response = await startFetchData(url);
-  //     console.log(response)
-  //     let paginationObject = calculatePageNumber(response.previous, response.next, response.results.length, response.count);
-  //     console.log(paginationObject)
-
-  //     setPaginationData(paginationObject);
-  //     // console.log(paginationObject)
-
-  //     dispatch({
-  //       type: "INITIALIZE_STATE",
-  //       payLoad: response
-  //     })
-
-  //   } catch (e) {
-  //     dispatch({type: "SHOW_ERROR"})
-  //   }
-  // }
-
   const getFilterText = (filterText) => {
     dispatch({
       type: "FILTER_ITEMS",
@@ -84,12 +59,10 @@ const DashBoardPeople = () => {
     dispatch({type: "START_FETCH"})
   }
 
-  console.log(dashboardPeopleState)
-
   return (
-    <div className="dashboard-people">
+    <div className="dashboard__pages">
       <ControlHeader
-        placeHolder="starship"
+        placeHolder="people"
         getFilterText={getFilterText}
         setStateUrl={setStateUrl}
         paginationData={paginationData}
@@ -98,7 +71,7 @@ const DashBoardPeople = () => {
 
       />
 
-      <div className="dashboard-data">
+      <div className="dashboard-people__container">
         <div className="dashboard-people__header">
           <p>Name</p>
           <p>Birth Year</p>
@@ -113,10 +86,10 @@ const DashBoardPeople = () => {
 
         {dashboardPeopleState.isLoading && <LoadingAnimation />}
         {dashboardPeopleState.fetchError && <FetchError />}
-        {
-          dashboardPeopleState.filteredItems && 
-          dashboardPeopleState.filteredItems.map((item) => <PeopleDataItem key={item.name} item={item} />) 
-        }
+
+        <div className="people-items hide-scroll-bar">
+          {dashboardPeopleState.filteredItems.map((item) => <PeopleDataItem key={item.name} item={item} />)}
+        </div>
       </div>
     </div>
   )

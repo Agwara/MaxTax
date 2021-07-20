@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useReducer} from "react";
+import React, {useEffect, useReducer} from "react";
 import {useHistory} from "react-router-dom";
 import formReducer from "../../formReducer/formReducer";
 import "./LoginForm.css"
@@ -12,9 +12,6 @@ const initialState = {
 }
 
 const LoginForm = () => {
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-
   const [formState, dispatch] = useReducer(formReducer, initialState);
 
   const history = useHistory();

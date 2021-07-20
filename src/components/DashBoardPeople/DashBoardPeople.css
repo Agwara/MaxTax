@@ -1,7 +1,11 @@
-.dashboard-people {
-  display: grid;
-  grid-template-rows: 60px 1fr;
-  overflow-y: scroll;
+.dashboard-people__container {
+  margin-top: 10px;
+
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 0.4000000059604645px solid #DBE3EE;
+  opacity: 1;
+
+  margin: 40px;
 }
 
 .dashboard-people__header, .people-data-item {
@@ -15,4 +19,10 @@
   letter-spacing: 0px;
   color: #859BBCF5;
   opacity: 1;
+}
+
+.people-items {
+  width: 100%;
+  max-height: 550px;
+  overflow-y: scroll;
 }

@@ -44,7 +44,7 @@ const DashBoard = () => {
 
 
   return (
-    <div className="dashboard">
+    <div className="dashboard__container">
       <DashBoardSide />
 
       <DashBoardHeader />

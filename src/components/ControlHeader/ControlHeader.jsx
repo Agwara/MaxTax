@@ -34,16 +34,9 @@ const ControlHeader = (props) => {
           <p>Back</p>
         </div>
 
-        {
-          props.componentState && <p>{props.componentState.totalItems} Total</p>
-        }
-
-        <div>
-          {
-            props.paginationData && 
-            <p>Showing {props.paginationData[0]} - {props.paginationData[1]} of {props.paginationData[2]}</p>
-          }
-        </div>
+        <p>{props.componentState.totalItems} Total</p>
+      
+        <p>Showing {props.paginationData[0]} - {props.paginationData[1]} of {props.paginationData[2]}</p>
 
         <div className="arrow-actions">
           <img
@@ -58,8 +51,8 @@ const ControlHeader = (props) => {
             onClick={() => nextController(props.componentState.nextFetchUrl)}
           />
         </div>
-        
       </div>
+      
       <div className="control-header__search">
         <input
           type="text"

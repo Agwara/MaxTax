@@ -1,4 +1,4 @@
-.dashboard {
+.dashboard__container {
   width: 100vw;
   height: 100vh;
 
@@ -7,7 +7,7 @@
   grid-template-rows: 60px 1fr;
 }
 
-.dashboard__container {
-  height: 100vh;
-  width: 100%;
+.dashboard__pages {
+  display: grid;
+  grid-template-rows: 60px 1fr;
 }

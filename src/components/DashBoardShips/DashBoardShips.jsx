@@ -59,7 +59,7 @@ const DashBoardShips = () => {
   }
 
   return (
-    <div className="dashboard-ship">
+    <div className="dashboard__pages">
       <ControlHeader
         placeHolder="starship"
         getFilterText={getFilterText}
@@ -70,8 +70,8 @@ const DashBoardShips = () => {
 
       />
 
-      <div className="dashboard-data">
-        <div className="dashboard-data__header">
+      <div className="dashboard-ship__container">
+        <div className="dashboard-ship__header">
           <p>Name</p>
           <p>Model</p>
           <p>Class</p>
@@ -83,11 +83,9 @@ const DashBoardShips = () => {
 
         {dashboardShipState.isLoading && <LoadingAnimation />}
         {dashboardShipState.fetchError && <FetchError />}
-        {
-          dashboardShipState.filteredItems && 
-          dashboardShipState.filteredItems.map((item) => <ShipsDataItem key={item.name} item={item} />) 
-        }
-      </div>
+
+        <div className="ship-items hide-scroll-bar">{dashboardShipState.filteredItems.map((item) => <ShipsDataItem key={item.name} item={item} />)}</div>
+      </div>           
     </div>
   )
 }

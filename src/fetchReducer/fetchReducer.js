@@ -24,7 +24,8 @@ export default function fetchReducer (state={}, action) {
       return {
         ...state,
         isLoading: true,
-        fetchError: false
+        fetchError: false,
+        filteredItems: []
       }
     
     case "SHOW_ERROR":

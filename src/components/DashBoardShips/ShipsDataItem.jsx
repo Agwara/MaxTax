@@ -11,7 +11,7 @@ const ShipsDataItem = (props) => {
   }
 
   return (
-    <div className="ships-data">
+    <div className="ships-data-item">
       <div className="ships-data__name">
         <div className="ships-data__block"></div>
         <p>{props.item.name.slice(0, 13)}...</p>
