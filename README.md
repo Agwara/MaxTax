@@ -1,6 +1,6 @@
 SOLUTION URL:  https://maxng-testagwara.herokuapp.com/
 
 APPLICANT'S NAME: AGWARA NNAEMEKA
-EMAIL ADDRESS: nnaemekagwara@gmail.com
+EMAIL ADDRESS: nnaemekaagwara@gmail.com
 PHONE: 07064839441
 JOB POSITON: FRONTEND DEVELOPER
