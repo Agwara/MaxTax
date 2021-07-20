@@ -12,8 +12,8 @@ const initialState = {
 }
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
 
   const [formState, dispatch] = useReducer(formReducer, initialState);
 
@@ -26,14 +26,14 @@ const LoginForm = () => {
     })
   }, [])
 
-  const validateEmail = () => {
+  const validateEmail = (email) => {
     dispatch({
       type: "VALIDATE_EMAIL",
       payload: {email}
     })
   }
 
-  const validatePassword = () => {
+  const validatePassword = (password) => {
     dispatch({
       type: "VALIDATE_PASSWORD",
       payload: {password}
@@ -63,8 +63,8 @@ const LoginForm = () => {
           <input
             type="email"
             placeholder="Email Address"
-            onChange={(e) => setEmail(e.target.value)}
-            onBlur={validateEmail}
+            onChange={(e) => validateEmail(e.target.value)}
+            onBlur={(e) => validateEmail(e.target.value)}
             autoComplete="off"
           />
         </div>
@@ -74,8 +74,8 @@ const LoginForm = () => {
           <input
             type="password"
             placeholder="Enter a strong password"
-            onChange={(e) => setPassword(e.target.value)}
-            onBlur={validatePassword}
+            onChange={(e) => validatePassword(e.target.value)}
+            onBlur={(e) => validatePassword(e.target.value)}
             autoComplete="off"
           />
         </div>
