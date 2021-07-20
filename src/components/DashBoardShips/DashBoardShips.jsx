@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useReducer} from "react";
+import React, {useState, useEffect, useReducer, } from "react";
 
 import ShipsDataItem from "./ShipsDataItem"
 import LoadingAnimation from "../LoadingAnimation/LoadingAnimation";
@@ -25,28 +25,31 @@ const DashBoardShips = () => {
   const [paginationData, setPaginationData] = useState([0, 0, 0]) 
 
   useEffect(() => {
-    shipsFetch(stateUrl)
+    let isMounted = true;
+    startFetchData(stateUrl).then((response) => {
+      let paginationObject = calculatePageNumber(response.previous, response.next, response.results.length, response.count);
+      if (isMounted) {
+        setPaginationData(paginationObject);
+        dispatch({
+          type: "INITIALIZE_STATE",
+          payLoad: response
+        })
+      }
+    }).catch(e => {
+      if (isMounted) {
+        dispatch({type: "SHOW_ERROR"})
+      }
+    })
+
+    return () => {
+      isMounted = false
+    }
   }, [stateUrl])
 
-
-  const shipsFetch = async (url) => {
-    try {
-      dispatch({type: "START_FETCH"})
-      let response = await startFetchData(url);
-      console.log(response)
-      let paginationObject = calculatePageNumber(response.previous, response.next, response.results.length, response.count);
-      console.log(paginationObject)
-      setPaginationData(paginationObject);
-      // console.log(paginationObject)
-
-      dispatch({
-        type: "INITIALIZE_STATE",
-        payLoad: response
-      }) 
-    } catch (e) {
-      dispatch({type: "SHOW_ERROR"})
-    }
+  const startLoadingData = () => {
+    dispatch({type: "START_FETCH"})
   }
+
 
   const getFilterText = (filterText) => {
     dispatch({
@@ -63,6 +66,7 @@ const DashBoardShips = () => {
         setStateUrl={setStateUrl}
         paginationData={paginationData}
         componentState={dashboardShipState}
+        startLoadingData={startLoadingData}
 
       />
 

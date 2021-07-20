@@ -9,6 +9,20 @@ import "./ControlHeader.css";
 const ControlHeader = (props) => {
   const history = useHistory();
 
+  const nextController = (value) => {
+    if (value) {
+      props.setStateUrl(value);
+      props.startLoadingData();
+    }
+  }
+
+  const prevController = (value) => {
+    if (value) {
+      props.setStateUrl(value)
+      props.startLoadingData();
+    }
+  } 
+
   return (
     <div className="control-header">
       <div className="control-header__actions">
@@ -19,8 +33,6 @@ const ControlHeader = (props) => {
           />
           <p>Back</p>
         </div>
-
-        {/* <p>{props.componentState.totalItems && props.componentState.totalItems} Total</p> */}
 
         {
           props.componentState && <p>{props.componentState.totalItems} Total</p>
@@ -37,13 +49,13 @@ const ControlHeader = (props) => {
           <img
             alt=""
             src={arrowRight}
-            onClick={() => props.setStateUrl(props.componentState.prevFetchUrl)}
+            onClick={() => prevController(props.componentState.prevFetchUrl)}
           />
           <img
             alt=""
             src={arrowRight}
             className="rotate-arrow"
-            onClick={() => props.setStateUrl(props.componentState.nextFetchUrl)}
+            onClick={() => nextController(props.componentState.nextFetchUrl)}
           />
         </div>
         

@@ -2,7 +2,6 @@
   display: grid;
   grid-template-rows: 60px 1fr;
   overflow-y: scroll;
-
 }
 
 .dashboard-data {
